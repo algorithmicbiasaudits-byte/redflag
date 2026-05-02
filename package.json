@@ -1,0 +1,10 @@
+{
+  "name": "redflag",
+  "version": "1.0.0",
+  "description": "RedFlag — Job description bias scanner",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.20.0",
+    "@supabase/supabase-js": "^2.39.3",
+    "stripe": "^14.0.0"
+  }
+}
