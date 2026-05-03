@@ -10,12 +10,12 @@
   <meta name="keywords" content="job description bias checker, biased job postings, age discrimination hiring, ATS bias, NYC Local Law 144, EEOC compliance, job seeker tool, algorithmic hiring bias, RedFlag" />
   <meta property="og:title" content="RedFlag — Scan Any Job Description for Bias" />
   <meta property="og:description" content="30 seconds. 7 bias dimensions. Know what you are walking into before you apply. $9.99 per report or $29.99/mo unlimited." />
-  <meta property="og:url" content="https://alsconsulting.netlify.app/redflag" />
+  <meta property="og:url" content="https://redflag-app.netlify.app" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="RedFlag — Job Description Bias Scanner" />
   <meta name="twitter:description" content="Scan any job posting for bias signals before you apply. 7 dimensions. 30 seconds. $9.99." />
-  <link rel="canonical" href="https://alsconsulting.netlify.app/redflag" />
+  <link rel="canonical" href="https://redflag-app.netlify.app" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -37,12 +37,7 @@
         "priceCurrency": "USD"
       }
     ],
-    "url": "https://alsconsulting.netlify.app/redflag",
-    "provider": {
-      "@type": "Organization",
-      "name": "ALS Consulting Services",
-      "url": "https://alsconsulting.netlify.app"
-    }
+    "url": "https://redflag-app.netlify.app"
   }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -269,8 +264,8 @@
   <!-- RESULTS PANEL — hidden by default -->
   <div class="results-panel" id="results-panel">
     <div class="print-header">
-      <h2>ALS Consulting — RedFlag Analysis Report</h2>
-      <p>AI Governance & HR Compliance · alsconsulting.netlify.app · Winston-Salem, NC</p>
+      <h2>RedFlag Analysis Report</h2>
+      <p>redflag-app.netlify.app</p>
       <p style="margin-top:0.25rem">Generated: <span id="report-date"></span></p>
     </div>
     <div class="results-header">
@@ -328,7 +323,7 @@
 </div>
 
 <footer>
-  <p>RedFlag by ALS Consulting · Powered by <a href="https://forensicauditingservices.com">forensicauditingservices.com</a></p>
+  <p>© 2026 RedFlag</p>
 </footer>
 
 <script>
@@ -612,7 +607,7 @@
 
   function shareToReddit() {
     const risk = document.getElementById('risk-badge').textContent;
-    const url = 'https://alsconsulting.netlify.app/redflag.html';
+    const url = 'https://redflag-app.netlify.app';
     const title = `I ran a job description through RedFlag — ${risk} — here's what it found`;
     const redditUrl = `https://www.reddit.com/submit?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`;
     window.open(redditUrl, '_blank');
@@ -625,7 +620,7 @@
       .map(f => '— ' + f.textContent)
       .join('\n');
     const text = `I just scanned a job description with RedFlag.\n\nOverall risk: ${risk}\n\nTop flags found:\n${flags}\n\nIf you are job searching — check your next JD before you apply.\n\nFree first report:`;
-    const url = 'https://alsconsulting.netlify.app/redflag.html';
+    const url = 'https://redflag-app.netlify.app';
     const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}&summary=${encodeURIComponent(text)}`;
     window.open(linkedInUrl, '_blank');
   }
@@ -636,7 +631,7 @@
       .slice(0, 3)
       .map(f => '— ' + f.textContent)
       .join('\n');
-    const text = `I just scanned a job description with RedFlag.\n\nOverall risk: ${risk}\n\nTop flags found:\n${flags}\n\nIf you are job searching — check your next JD before you apply.\n\nFree first report: https://alsconsulting.netlify.app/redflag.html`;
+    const text = `I just scanned a job description with RedFlag.\n\nOverall risk: ${risk}\n\nTop flags found:\n${flags}\n\nIf you are job searching — check your next JD before you apply.\n\nFree first report: https://redflag-app.netlify.app`;
     navigator.clipboard.writeText(text).then(() => {
       const btn = document.getElementById('copy-btn');
       btn.textContent = '✓ Copied!';
