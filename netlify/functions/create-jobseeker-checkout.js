@@ -3,6 +3,7 @@ const Stripe = require('stripe');
 exports.handler = async function(event) {
   console.log('STRIPE_SECRET_KEY exists:', !!process.env.STRIPE_SECRET_KEY);
   console.log('PRICE_ID exists:', !!process.env.STRIPE_PRICE_JD_JOBSEEKER_REPORT);
+  console.log('All env keys:', Object.keys(process.env).filter(k => k.includes('STRIPE')));
 
   if (event.httpMethod === 'OPTIONS') {
     return {
@@ -28,7 +29,7 @@ exports.handler = async function(event) {
       mode: 'payment',
       line_items: [
         {
-          price: process.env.STRIPE_PRICE_JD_JOBSEEKER_REPORT,
+          price: process.env.STRIPE_PRICE_JD_JOBSEEKER_REPORT || 'price_1TOVoYFrSxVhlAT57lUaMtSG',
           quantity: 1
         }
       ],
