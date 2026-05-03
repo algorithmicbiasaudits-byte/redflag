@@ -10,12 +10,12 @@
   <meta name="keywords" content="job description bias checker, biased job postings, age discrimination hiring, ATS bias, NYC Local Law 144, EEOC compliance, job seeker tool, algorithmic hiring bias, RedFlag" />
   <meta property="og:title" content="RedFlag — Scan Any Job Description for Bias" />
   <meta property="og:description" content="30 seconds. 7 bias dimensions. Know what you are walking into before you apply. $9.99 per report or $29.99/mo unlimited." />
-  <meta property="og:url" content="https://redflag-app.netlify.app" />
+  <meta property="og:url" content="https://redflagjobscanner.netlify.app" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="RedFlag — Job Description Bias Scanner" />
   <meta name="twitter:description" content="Scan any job posting for bias signals before you apply. 7 dimensions. 30 seconds. $9.99." />
-  <link rel="canonical" href="https://redflag-app.netlify.app" />
+  <link rel="canonical" href="https://redflagjobscanner.netlify.app" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -37,7 +37,7 @@
         "priceCurrency": "USD"
       }
     ],
-    "url": "https://redflag-app.netlify.app"
+    "url": "https://redflagjobscanner.netlify.app"
   }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -171,7 +171,7 @@
   backdrop-filter:blur(12px);
   border-bottom:1px solid rgba(220,60,60,0.25);
 ">
-  <a href="/redflag.html" style="
+  <a href="/" style="
     font-family:'DM Serif Display',serif;font-size:1.4rem;
     font-weight:700;text-decoration:none;letter-spacing:0.03em;color:#fff;
   ">Red<span style="color:#e84040">Flag</span></a>
@@ -179,7 +179,7 @@
   <div id="rf-nav-links" style="display:flex;gap:2rem;align-items:center;">
     <a href="#how-it-works" style="color:#8899b4;text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#8899b4'">How It Works</a>
     <a href="#pricing" style="color:#8899b4;text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#8899b4'">Pricing</a>
-    <a href="/redflag.html" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" style="
+    <a href="/" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" style="
       border:1px solid #e84040;color:#e84040;text-decoration:none;
       font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
       padding:0.45rem 1.2rem;border-radius:4px;transition:all 0.2s;
@@ -265,7 +265,7 @@
   <div class="results-panel" id="results-panel">
     <div class="print-header">
       <h2>RedFlag Analysis Report</h2>
-      <p>redflag-app.netlify.app</p>
+      <p>redflagjobscanner.netlify.app</p>
       <p style="margin-top:0.25rem">Generated: <span id="report-date"></span></p>
     </div>
     <div class="results-header">
@@ -508,7 +508,7 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           analysisResult,
-          successUrl: window.location.origin + '/redflag.html?success=true',
+          successUrl: window.location.origin + '/?success=true',
           cancelUrl: window.location.href
         })
       });
@@ -607,7 +607,7 @@
 
   function shareToReddit() {
     const risk = document.getElementById('risk-badge').textContent;
-    const url = 'https://redflag-app.netlify.app';
+    const url = 'https://redflagjobscanner.netlify.app';
     const title = `I ran a job description through RedFlag — ${risk} — here's what it found`;
     const redditUrl = `https://www.reddit.com/submit?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`;
     window.open(redditUrl, '_blank');
@@ -620,7 +620,7 @@
       .map(f => '— ' + f.textContent)
       .join('\n');
     const text = `I just scanned a job description with RedFlag.\n\nOverall risk: ${risk}\n\nTop flags found:\n${flags}\n\nIf you are job searching — check your next JD before you apply.\n\nFree first report:`;
-    const url = 'https://redflag-app.netlify.app';
+    const url = 'https://redflagjobscanner.netlify.app';
     const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}&summary=${encodeURIComponent(text)}`;
     window.open(linkedInUrl, '_blank');
   }
@@ -631,7 +631,7 @@
       .slice(0, 3)
       .map(f => '— ' + f.textContent)
       .join('\n');
-    const text = `I just scanned a job description with RedFlag.\n\nOverall risk: ${risk}\n\nTop flags found:\n${flags}\n\nIf you are job searching — check your next JD before you apply.\n\nFree first report: https://redflag-app.netlify.app`;
+    const text = `I just scanned a job description with RedFlag.\n\nOverall risk: ${risk}\n\nTop flags found:\n${flags}\n\nIf you are job searching — check your next JD before you apply.\n\nFree first report: https://redflagjobscanner.netlify.app`;
     navigator.clipboard.writeText(text).then(() => {
       const btn = document.getElementById('copy-btn');
       btn.textContent = '✓ Copied!';
@@ -685,7 +685,7 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           analysisResult,
-          successUrl: window.location.origin + '/redflag.html?success=true',
+          successUrl: window.location.origin + '/?success=true',
           cancelUrl: window.location.href
         })
       });

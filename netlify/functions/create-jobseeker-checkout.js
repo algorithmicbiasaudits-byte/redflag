@@ -1,6 +1,9 @@
 const Stripe = require('stripe');
 
 exports.handler = async function(event) {
+  console.log('STRIPE_SECRET_KEY exists:', !!process.env.STRIPE_SECRET_KEY);
+  console.log('PRICE_ID exists:', !!process.env.STRIPE_PRICE_JD_JOBSEEKER_REPORT);
+
   if (event.httpMethod === 'OPTIONS') {
     return {
       statusCode: 200,
