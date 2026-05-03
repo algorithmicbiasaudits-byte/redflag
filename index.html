@@ -305,7 +305,7 @@
   </button>
 </div>
       <div class="upsell-sub">Unlock unlimited analyses for every job you apply to.</div>
-      <a href="#pricing" class="upsell-btn">$29.99/mo Unlimited →</a>
+      <button onclick="startSubscription()" class="upsell-btn" style="border:none;cursor:pointer;">$29.99/mo Unlimited →</button>
       <button onclick="window.print()"
         style="display:block;width:100%;padding:12px;
         border:1px solid var(--border);color:var(--white);
@@ -437,7 +437,7 @@
         document.getElementById('gate-btn').textContent = 'Pay $9.99 — Access Report';
         document.getElementById('gate-btn').onclick = handlePaidGateSubmit;
         document.getElementById('gate-privacy').innerHTML =
-          '<a href="#pricing" style="color:var(--gold)">Upgrade to $29.99/mo unlimited</a>';
+          '<button onclick="startSubscription()" style="background:none;border:none;color:var(--gold);cursor:pointer;font-size:0.82rem;text-decoration:underline;font-family:\'DM Sans\',sans-serif">Upgrade to $29.99/mo unlimited →</button>';
         show('gate-panel');
       } else {
         showPaymentGate();
@@ -650,7 +650,7 @@
     document.getElementById('gate-email').style.display = 'none';
     document.getElementById('gate-btn').textContent = 'Pay $9.99 — Access This Report →';
     document.getElementById('gate-btn').onclick = initiatePayment;
-    document.getElementById('gate-privacy').innerHTML = '<a href="#pricing" style="color:var(--gold)">Upgrade to $29.99/mo unlimited →</a>';
+    document.getElementById('gate-privacy').innerHTML = '<button onclick="startSubscription()" style="background:none;border:none;color:var(--gold);cursor:pointer;font-size:0.82rem;text-decoration:underline;font-family:\'DM Sans\',sans-serif">Upgrade to $29.99/mo unlimited →</button>';
     show('gate-panel');
   }
 
@@ -717,6 +717,23 @@
   }
 
   document.getElementById('report-date').textContent = new Date().toLocaleDateString('en-US', {year:'numeric',month:'long',day:'numeric'});
+
+  async function startSubscription() {
+    try {
+      const response = await fetch('/.netlify/functions/create-jobseeker-subscription', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          successUrl: window.location.origin + '/?success=true&plan=unlimited',
+          cancelUrl: window.location.href
+        })
+      });
+      const data = await response.json();
+      if (data.url) window.location.href = data.url;
+    } catch(err) {
+      console.error('Subscription error:', err);
+    }
+  }
 
   function toggleNav() {
     document.getElementById('rf-nav-links').classList.toggle('open');

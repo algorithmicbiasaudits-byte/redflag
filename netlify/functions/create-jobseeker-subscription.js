@@ -25,7 +25,7 @@ exports.handler = async function(event) {
       mode: 'subscription',
       line_items: [
         {
-          price: process.env.STRIPE_PRICE_JD_JOBSEEKER_SUB,
+          price: process.env.STRIPE_PRICE_JD_JOBSEEKER_SUB || 'price_1TOVpsFrSxVhlAT5bLBqlILd',
           quantity: 1
         }
       ],
